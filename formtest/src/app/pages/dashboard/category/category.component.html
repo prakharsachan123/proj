@@ -1,0 +1,23 @@
+<a routerLink="../addcategory"><input type="button" value="Add Category" class="btn btn-danger" ></a>
+
+<table class="table">
+ 
+    <tr>
+      <th scope="col">Sno:</th>
+      <th scope="col">Category Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Image</th>
+      <th scope="col">Created At</th>
+      <th scope="col">Action</th>
+    </tr>
+    <tr *ngFor="let n of maindata; let i=index">
+      <td>{{i+1}}</td>
+      <td>{{n.cname}}</td>
+      <td>{{n.description}}</td>
+      <td> <img src="http://localhost:3000/images/{{n.image}}" width="50" height="50"></td>
+      <td>{{n.createdAt|date:'d-M-y'}}</td>
+      <td><a routerLink="../editcategory/{{n._id}}" class="btn btn-info" >Edit</a><input type="button" class="btn btn-danger" value="Delete" (click)="catDel(n._id)"></td>
+    </tr>
+    
+ 
+</table>
